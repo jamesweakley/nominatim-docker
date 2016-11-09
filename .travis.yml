@@ -7,7 +7,7 @@ before_install:
   - DATE=`date +%Y.%m.%d`
   
 script:
-  - docker build --build-arg PBF_DATA=http://download.geofabrik.de/australia-oceania/australia-latest.osm.pbf -t jimmyww/nominatim-oceania .
+  - docker build --build-arg PBF_DATA=http://download.geofabrik.de/australia-oceania/australia-latest.osm.pbf -t jimmyww/nominatim-oceania 2.5
   - docker tag jimmyww/nominatim-oceania jimmyww/nominatim-oceania:$DATE
   
 after_success:
