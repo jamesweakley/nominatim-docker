@@ -8,10 +8,10 @@ before_install:
   
 script:
   - docker build --build-arg PBF_DATA=http://download.geofabrik.de/australia-oceania/australia-latest.osm.pbf -t nominatim-oceania 2.5
-  - docker tag nominatim-oceania jimmyww/nominatim-oceania:$DATE
+  - docker tag nominatim-oceania "jimmyww/nominatim-oceania:$DATE"
   - docker tag nominatim-oceania jimmyww/nominatim-oceania:latest
   
 after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker push jimmyww/nominatim-oceania:DATE
+  - docker push "jimmyww/nominatim-oceania:$DATE"
   - docker push jimmyww/nominatim-oceania:latest
